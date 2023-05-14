@@ -47,7 +47,7 @@ export default function Home({
 }
 
 export async function getServerSideProps(context) {
-  const session = await getSession(context);
+  const data = await getSession(context);
 
   const [
     popularMoviesRes,

@@ -27,7 +27,7 @@ function Hero() {
             Get all three
           </button>
           <p className="text-xs text-center py-2">
-            Get Premier Access to Raya and the Last Dragon for an additional fee
+            Get Premier Access for an additional fee
             with a Disney+ subscription. As of 03/26/23, the price of Disney+
             and The Disney Bundle will increase by $10.
           </p>
