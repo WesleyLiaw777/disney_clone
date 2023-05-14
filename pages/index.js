@@ -1,12 +1,11 @@
-import Image from "next/image";
 import { Inter } from "next/font/google";
-import Head from "next/head";
-import Header from "@/components/Header";
 import { getSession, useSession } from "next-auth/react";
-import Hero from "@/components/Hero";
-import Slider from "@/components/Slider";
+import Head from "next/head";
 import Brands from "@/components/Brands";
 import MoviesCollection from "@/components/MoviesCollection";
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import Slider from "@/components/Slider";
 import ShowsCollection from "@/components/ShowsCollection";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -22,7 +21,10 @@ export default function Home({
   return (
     <div>
       <Head>
-        <title>Disney+</title>
+        <title>
+          Disney+ | The streaming home of Disney, Pixar, Marvel, Star Wars, Nat
+          Geo and Star{" "}
+        </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -47,8 +49,7 @@ export default function Home({
 }
 
 export async function getServerSideProps(context) {
-  const data = await getSession(context);
-
+  const session = await getSession(context);
   const [
     popularMoviesRes,
     popularShowsRes,

@@ -26,7 +26,7 @@ function Movie({ result }) {
   }, [])
 
   return (
-    <div>
+    <div className="relative">
       <Head>
         <title>{result.title || result.original_name}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -48,7 +48,7 @@ function Movie({ result }) {
             />
           </div>
 
-          <div className="absolute inset-y-28 md:inset-y-auto md:bottom-10 inset-x-4 md:inset-x-12 space-y-6 z-50">
+          <div className="absolute inset-y-12 md:inset-y-auto md:bottom-10 inset-x-4 md:inset-x-12 space-y-6 z-50">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
               {result.title || result.original_name}
             </h1>

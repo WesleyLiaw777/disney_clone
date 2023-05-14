@@ -15,9 +15,8 @@ function ShowThumbnail({ result }) {
           `${BASE_URL}${result.backdrop_path || result.poster_path}` ||
           `${BASE_URL}${result.poster_path}`
         }
-        width={330}
-        height={210}
-        objectFit="cover"
+        style={{objectFit: "cover"}}
+        fill={true}
         className="rounded-lg"
       />
     </div>

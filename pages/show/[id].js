@@ -25,7 +25,7 @@ function Show({ result }) {
   }, []);
 
   return (
-    <div>
+    <div className="relative">
       <Head>
         <title>{result.title || result.original_name}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -47,7 +47,7 @@ function Show({ result }) {
             />
           </div>
 
-          <div className="absolute inset-y-28 md:inset-y-auto md:bottom-10 inset-x-4 md:inset-x-12 space-y-6 z-50">
+          <div className="absolute inset-y-12 md:inset-y-auto md:bottom-10 inset-x-4 md:inset-x-12 space-y-6 z-50">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
               {result.title || result.original_name}
             </h1>
@@ -88,11 +88,12 @@ function Show({ result }) {
 
             <p className="text-xs md:text-sm">
               {result.release_date || result.first_air_date} •{" "}
-              {Math.floor(result.runtime / 60)}h {result.runtime % 60}m •{" "}
+              {result.number_of_seasons}{" "}
+              {result.number_of_seasons === 1 ? "Season" : "Seasons"} •{" "}
               {result.genres.map((genre) => genre.name + " ")}{" "}
             </p>
 
-            <h4 className="text-sm md:text-lg max-w-4xl">{result.overview}</h4>
+            <h4 className="text-sm md:text-lg max-w-4xl bg-black/40 rounded-md p-2">{result.overview}</h4>
           </div>
 
           {/* Background Overlay */}
