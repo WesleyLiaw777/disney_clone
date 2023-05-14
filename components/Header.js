@@ -6,18 +6,11 @@ import {
   StarIcon,
 } from "@heroicons/react/solid";
 import { useRouter } from "next/router";
-import { getSession, signOut, signIn, useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "@/firebase";
+import { signOut, signIn, useSession } from "next-auth/react";
 
 function Header() {
-  const session = useSession();
+  const { data } = useSession();
   const router = useRouter();
-
-  useEffect(() => {
-    console.log(session)
-  }, [session])
 
   return (
     <header className="sticky bg-[#040714] top-0 z-[1000] flex items-center px-10 h-[72px] md:px-12">
@@ -28,6 +21,7 @@ function Header() {
         className="cursor-pointer"
         onClick={() => router.push("/")}
       />
+      {data && (
         <div className="hidden ml-10 md:flex items-center space-x-6">
           <a className="header-link group">
             <HomeIcon className="h-4" />
@@ -54,21 +48,23 @@ function Header() {
             <span className="span">Series</span>
           </a>
         </div>
+      )}
+      {!data ? (
         <button
           className="ml-auto uppercase border px-4 py-1.5 rounded font-medium tracking-wide hover:bg-white hover:text-black transition duration-200"
           onClick={signIn}
         >
           Login
         </button>
+      ) : (
         <img
-          src="/images/logo.svg"
-          // src={session.user.image}
+          src={data.user.image}
           alt=""
           className="ml-auto h-12 w-12 rounded-full object-cover cursor-pointer"
           onClick={signOut}
         />
+      )}
     </header>
   );
 }
 export default Header;
-

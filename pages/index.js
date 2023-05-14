@@ -10,8 +10,8 @@ import Brands from '@/components/Brands'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  // const [session] = useSession();
-  const session = true;
+  const {data} = useSession();
+  
 
   return (
     <div>
@@ -21,10 +21,10 @@ export default function Home() {
       </Head>
 
       <Header/>
-      {!session ? (
+      {!data ? (
         <Hero/>
       ): (
-        <main>
+        <main className='relative min-h-screen after:bg-home after:bg-center after:bg-cover after:bg-no-repeat after:bg-fixed after:absolute after:inset-0 after:z-[-1]'>
           <Slider/>
           <Brands/>
         </main>
@@ -34,10 +34,10 @@ export default function Home() {
 }
 
 export async function getServerSideProps(context) {
-  const session = await getSession(context);
+  const data = await getSession(context);
   return {
     props: {
-        session,
+        data,
     }
   }
 }

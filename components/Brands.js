@@ -9,10 +9,61 @@ function Brands() {
             fill={true}
             style={{objectFit: "cover"}}
             />
-            <video autoPlay loop playsInline className="hidden group:hover:inline rounded-lg object-cover">
-                <source src="/videos/disney.mp4"/>
+            <video autoPlay loop playsInline className="hidden group-hover:inline rounded-lg object-cover">
+                <source src="/videos/disney.mp4" type="video/mp4"/>
             </video>
         </div>
+
+        <div className="brand group">
+        <Image src="/images/pixar.png" fill={true} style={{objectFit: "cover"}} />
+        <video
+          autoPlay
+          loop
+          playsInline
+          className="hidden group-hover:inline rounded-lg object-cover"
+        >
+          <source src="/videos/pixar.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <div className="brand group">
+        <Image src="/images/marvel.png" fill={true} style={{objectFit: "cover"}} />
+        <video
+          autoPlay
+          loop
+          playsInline
+          className="hidden group-hover:inline rounded-lg object-cover"
+        >
+          <source src="/videos/marvel.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <div className="brand group">
+        <Image src="/images/starwars.png" fill={true} style={{objectFit: "cover"}} />
+        <video
+          autoPlay
+          loop
+          playsInline
+          className="hidden group-hover:inline rounded-lg object-cover"
+        >
+          <source src="/videos/star-wars.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div className="brand group">
+        <Image
+          src="/images/national-geographic.png"
+          fill={true}
+          style={{objectFit: "cover"}}
+        />
+        <video
+          autoPlay
+          loop
+          playsInline
+          className="hidden group-hover:inline rounded-lg object-cover"
+        >
+          <source src="/videos/national-geographic.mp4" type="video/mp4" />
+        </video>
+      </div>
     </section>
   )
 }
