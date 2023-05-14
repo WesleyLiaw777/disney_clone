@@ -17,7 +17,7 @@ export default function Home({
   top_ratedShows,
 }) {
   const { data } = useSession();
-
+  
   return (
     <div>
       <Head>
