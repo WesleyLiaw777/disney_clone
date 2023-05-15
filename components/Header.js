@@ -7,10 +7,37 @@ import {
 } from "@heroicons/react/solid";
 import { useRouter } from "next/router";
 import { signOut, signIn, useSession } from "next-auth/react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth, db } from "/firebase";
+import { useEffect } from "react";
 
 function Header() {
-  const { data } = useSession();
   const router = useRouter();
+  const { data } = useSession();
+  // const { user } = useSession().data;
+
+  console.log(auth);
+  console.log(data);
+  // console.log(user);
+
+  // useEffect(() => {
+  //   const unsubscribe = onAuthStateChanged(auth, async (user) => {
+  //     if (user) {
+  //       // User is signed in, so add their data to the database
+  //       const usersRef = collection(db, "users");
+  //       await addDoc(usersRef, {
+  //         uid: user.name,
+  //         email: user.email,
+  //         displayName: user.name,
+  //         photoURL: user.image,
+  //       });
+  //     }
+  //   });
+
+  //   // Return a function that will clean up the effect
+  //   return () => unsubscribe();
+  // }, [auth]);
+
 
   return (
     <header className="sticky bg-[#040714] top-0 z-[1000] flex items-center px-10 h-[72px] md:px-12">
@@ -49,7 +76,7 @@ function Header() {
           </a>
         </div>
       )}
-      {!data ? (
+      {data === null ? (
         <button
           className="ml-auto uppercase border px-4 py-1.5 rounded font-medium tracking-wide hover:bg-white hover:text-black transition duration-200"
           onClick={signIn}
