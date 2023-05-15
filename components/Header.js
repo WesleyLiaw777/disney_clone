@@ -7,36 +7,14 @@ import {
 } from "@heroicons/react/solid";
 import { useRouter } from "next/router";
 import { signOut, signIn, useSession } from "next-auth/react";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth, db } from "/firebase";
-import { useEffect } from "react";
+import { auth } from "/firebase";
 
 function Header() {
   const router = useRouter();
   const { data } = useSession();
-  // const { user } = useSession().data;
 
   console.log(auth);
   console.log(data);
-  // console.log(user);
-
-  // useEffect(() => {
-  //   const unsubscribe = onAuthStateChanged(auth, async (user) => {
-  //     if (user) {
-  //       // User is signed in, so add their data to the database
-  //       const usersRef = collection(db, "users");
-  //       await addDoc(usersRef, {
-  //         uid: user.name,
-  //         email: user.email,
-  //         displayName: user.name,
-  //         photoURL: user.image,
-  //       });
-  //     }
-  //   });
-
-  //   // Return a function that will clean up the effect
-  //   return () => unsubscribe();
-  // }, [auth]);
 
 
   return (

@@ -14,7 +14,7 @@ function MovieThumbnail({ result }) {
           `${BASE_URL}${result.backdrop_path || result.poster_path}` ||
           `${BASE_URL}${result.poster_path}`
         }
-        style={{objectFit: "cover"}}
+        style={{ objectFit: "cover" }}
         fill={true}
         className="rounded-lg"
       />
